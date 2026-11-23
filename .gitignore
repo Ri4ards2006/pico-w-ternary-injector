@@ -1,0 +1,25 @@
+# Build output (contains compile-time-embedded WiFi credentials!)
+/target/
+**/*.elf
+**/*.uf2
+**/*.bin
+!/cyw43-firmware/*.bin
+
+# Local configuration / secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets*
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+
+# probe-rs / debugging artefacts
+*.log
+*.rtt

@@ -1,0 +1,13 @@
+[target.'cfg(all(target_arch = "arm", target_os = "none"))']
+# Flash over SWD (Raspberry Pi Debug Probe / picoprobe) and stream defmt logs via RTT.
+runner = "probe-rs run --chip RP2040"
+
+[build]
+target = "thumbv6m-none-eabi" # Cortex-M0+ (RP2040)
+
+[env]
+DEFMT_LOG = "info"
+
+[alias]
+# Pure-logic unit tests (2B1T wire model, PIO program, divider math) on the workstation.
+test-host = "test --lib --target x86_64-unknown-linux-gnu"
